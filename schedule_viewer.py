@@ -1,4 +1,4 @@
-#!/usr/bin/python2.5
+#!/usr/bin/python2.6
 
 # Copyright (C) 2007 Google Inc.
 #
@@ -120,7 +120,7 @@ class ScheduleRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         f, mime_type = self.OpenFile(m.group(1))
         return self.handle_static_file_GET(f, mime_type)
       except IOError, e:
-        print "Error: unable to open %s" % m.group(1)
+        print("Error: unable to open %s" % m.group(1))
         # Ignore and treat as 404
 
     m = re.match(r'/([a-z]{1,64})', path)
@@ -418,14 +418,14 @@ class ScheduleRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     height = int(params.get('height', 300))
 
     if not route:
-      print 'no such route'
+      print('no such route')
       self.send_error(404)
       return
 
     pattern_id_trip_dict = route.GetPatternIdTripDict()
     pattern_id = trip.pattern_id
     if pattern_id not in pattern_id_trip_dict:
-      print 'no pattern %s found in %s' % (pattern_id, pattern_id_trip_dict.keys())
+      print('no pattern %s found in %s' % (pattern_id, pattern_id_trip_dict.keys()))
       self.send_error(404)
       return
     triplist = pattern_id_trip_dict[pattern_id]
@@ -515,7 +515,7 @@ https://github.com/google/transitfeed/wiki/ScheduleViewer
   (options, args) = parser.parse_args()
 
   if not os.path.isfile(os.path.join(options.file_dir, 'index.html')):
-    print "Can't find index.html with --file_dir=%s" % options.file_dir
+    print("Can't find index.html with --file_dir=%s" % options.file_dir)
     exit(1)
 
   if not options.feed_filename and len(args) == 1:
@@ -538,8 +538,8 @@ https://github.com/google/transitfeed/wiki/ScheduleViewer
   util.CheckVersion(transitfeed.ProblemReporter())
 
   schedule = transitfeed.Schedule(problem_reporter=transitfeed.ProblemReporter())
-  print 'Loading data from feed "%s"...' % options.feed_filename
-  print '(this may take a few minutes for larger cities)'
+  print('Loading data from feed "%s"...' % options.feed_filename)
+  print('(this may take a few minutes for larger cities)')
   schedule.Load(options.feed_filename)
 
   server = StoppableHTTPServer(server_address=('', options.port),
@@ -550,7 +550,7 @@ https://github.com/google/transitfeed/wiki/ScheduleViewer
   server.host = options.host
   server.feed_path = options.feed_filename
 
-  print ("To view, point your browser at http://localhost:%d/" %
+  print("To view, point your browser at http://localhost:%d/" %
          (server.server_port))
   server.serve_forever()
 

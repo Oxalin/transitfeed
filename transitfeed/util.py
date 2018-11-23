@@ -1,4 +1,4 @@
-#!/usr/bin/python2.5
+#!/usr/bin/python2.6
 
 # Copyright (C) 2009 Google Inc.
 #
@@ -103,10 +103,10 @@ or an email to the public group transitfeed@googlegroups.com. Sorry!
 
     open('transitfeedcrash.txt', 'w').write(''.join(dump))
 
-    print ''.join(dump)
+    print(''.join(dump))
     print
-    print dashes
-    print apology
+    print(dashes)
+    print(apology)
 
     try:
       raw_input('Press enter to continue...')
@@ -557,7 +557,7 @@ class CsvUnicodeWriter:
     try:
       self.writer.writerow(encoded_row)
     except Exception, e:
-      print 'error writing %s as %s' % (row, encoded_row)
+      print('error writing %s as %s' % (row, encoded_row))
       raise e
 
   def writerows(self, rows):

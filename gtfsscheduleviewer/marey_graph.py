@@ -1,4 +1,4 @@
-#!/usr/bin/python2.5
+#!/usr/bin/python2.6
 #
 # Copyright (C) 2007 Google Inc.
 #
@@ -292,7 +292,7 @@ class MareyGraph:
     return t_dists2
 
   def _AddWarning(self, str):
-    print str
+    print(str)
 
   def _DrawTrips(self,triplist,colpar=""):
     """Generates svg polylines for each transit trip.

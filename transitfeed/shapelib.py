@@ -1,4 +1,4 @@
-#!/usr/bin/python2.4
+#!/usr/bin/python2.6
 #
 # Copyright 2007 Google Inc. All Rights Reserved.
 #
@@ -400,9 +400,9 @@ class PolyCollection(object):
       print ("Warning: duplicate shape id being added to collection: " +
              poly.GetName())
       if poly.GreedyPolyMatchDist(self._name_to_shape[poly.GetName()]) < 10:
-        print "  (Skipping as it apears to be an exact duplicate)"
+        print("  (Skipping as it apears to be an exact duplicate)")
       else:
-        print "  (Adding new shape variant with uniquified name)"
+        print("  (Adding new shape variant with uniquified name)")
         inserted_name = "%s-%d" % (inserted_name, len(self._name_to_shape))
     self._name_to_shape[inserted_name] = poly
 
@@ -549,7 +549,7 @@ class PolyGraph(PolyCollection):
       if nearby:
         nearby_points.append(nearby)
       else:
-        print "No nearby points found for point %s" % str(point.ToLatLng())
+        print("No nearby points found for point %s" % str(point.ToLatLng()))
         return None
 
     pathToStr = lambda start, end, path: ("  Best path %s -> %s: %s"
@@ -558,7 +558,7 @@ class PolyGraph(PolyCollection):
                                              path and path.GetName() or
                                              "None"))
     if verbosity >= 3:
-      print "Step 1"
+      print("Step 1")
     step = 2
 
     start_points = nearby_points[0]
@@ -568,12 +568,12 @@ class PolyGraph(PolyCollection):
       for end in end_points:
         path = self.ShortestPath(start, end)
         if verbosity >= 3:
-          print pathToStr(start, end, path)
+          print(pathToStr(start, end, path))
         PolyGraph._AddPathToHeap(paths_found, path, keep_best_n)
 
     for possible_points in nearby_points[2:]:
       if verbosity >= 3:
-        print "\nStep %d" % step
+        print("\nStep %d" % step)
         step += 1
       new_paths_found = []
 
@@ -586,7 +586,7 @@ class PolyGraph(PolyCollection):
           else:
             new_segment = self.ShortestPath(start, end)
             if verbosity >= 3:
-              print pathToStr(start, end, new_segment)
+              print(pathToStr(start, end, new_segment))
             start_end_paths[(start, end)] = new_segment
 
           if new_segment:

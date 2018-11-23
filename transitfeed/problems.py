@@ -1,4 +1,4 @@
-#!/usr/bin/python2.5
+#!/usr/bin/python2.6
 
 # Copyright (C) 2007 Google Inc.
 #
@@ -378,8 +378,8 @@ class SimpleProblemAccumulator(ProblemAccumulatorInterface):
   def _Report(self, e):
     context = e.FormatContext()
     if context:
-      print context
-    print util.EncodeUnicode(self._LineWrap(e.FormatProblem(), 78))
+      print(context)
+    print(util.EncodeUnicode(self._LineWrap(e.FormatProblem(), 78)))
 
   @staticmethod
   def _LineWrap(text, width):
