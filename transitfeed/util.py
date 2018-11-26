@@ -27,8 +27,8 @@ import time
 import urllib2
 
 import problems as problems_module
-from trip import Trip
-from version import __version__
+from .trip import Trip
+from .version import __version__
 
 # URL which identifies the latest release version of the transitfeed library.
 LATEST_RELEASE_VERSION_URL = 'https://raw.githubusercontent.com/wiki/google/transitfeed/LatestReleaseVersion.md'

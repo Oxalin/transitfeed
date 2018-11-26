@@ -16,7 +16,7 @@
 
 import bisect
 
-from gtfsfactoryuser import GtfsFactoryUser
+from .gtfsfactoryuser import GtfsFactoryUser
 import problems as problems_module
 import util
 

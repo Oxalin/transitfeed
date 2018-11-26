@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from gtfsobjectbase import GtfsObjectBase
+from .gtfsobjectbase import GtfsObjectBase
 import util
 
 class Frequency(GtfsObjectBase):

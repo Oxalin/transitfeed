@@ -16,7 +16,7 @@
 
 import warnings
 
-from gtfsobjectbase import GtfsObjectBase
+from .gtfsobjectbase import GtfsObjectBase
 import problems as problems_module
 import util
 

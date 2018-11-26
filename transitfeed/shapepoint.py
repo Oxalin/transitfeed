@@ -16,9 +16,9 @@
 # limitations under the License.
 
 import bisect
-from gtfsobjectbase import GtfsObjectBase
 import problems as problems_module
 import util
+from .gtfsobjectbase import GtfsObjectBase
 import sys
 
 class ShapePoint(GtfsObjectBase):
