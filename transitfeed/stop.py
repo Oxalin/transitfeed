@@ -17,8 +17,8 @@
 import warnings
 
 from .gtfsobjectbase import GtfsObjectBase
-import problems as problems_module
-import util
+from . import problems as problems_module
+from . import util
 
 class Stop(GtfsObjectBase):
   """Represents a single stop. A stop must have a latitude, longitude and name.

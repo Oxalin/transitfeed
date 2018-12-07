@@ -16,8 +16,9 @@
 
 import logging
 import time
+import textwrap
 
-import util
+from . import util
 
 # Problem types:
 # Error: A data issue not allowed by the GTFS spec.

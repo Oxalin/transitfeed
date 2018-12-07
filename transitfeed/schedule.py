@@ -39,10 +39,10 @@ import warnings
 import weakref
 import zipfile
 
-import gtfsfactory
-import problems as problems_module
+from . import gtfsfactory
+from . import problems as problems_module
 from transitfeed.util import defaultdict
-import util
+from . import util
 
 class Schedule(object):
   """Represents a Schedule, a collection of stops, routes, trips and
@@ -1245,7 +1245,7 @@ class Schedule(object):
             # If the serivce_id_pair_key is not in the cache, we do the
             # full service period comparison
             if service_id_pair_key not in service_period_overlap_cache:
-              
+
               # If the trip references an unknown service id, then we bail,
               # since we can't effectively determine block overlap and an
               # error will have already been registered for the missing

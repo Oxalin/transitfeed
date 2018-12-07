@@ -16,7 +16,7 @@
 
 from .gtfsobjectbase import GtfsObjectBase
 from .problems import default_problem_reporter
-import util
+from . import util
 
 class FareAttribute(GtfsObjectBase):
   """Represents a fare type."""

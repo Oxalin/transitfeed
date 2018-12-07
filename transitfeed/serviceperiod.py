@@ -18,8 +18,8 @@ import datetime
 import re
 import time
 
-import problems as problems_module
-import util
+from . import problems as problems_module
+from . import util
 
 class ServicePeriod(object):
   """Represents a service, which identifies a set of dates when one or more

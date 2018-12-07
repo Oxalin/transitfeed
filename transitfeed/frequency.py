@@ -15,7 +15,7 @@
 # limitations under the License.
 
 from .gtfsobjectbase import GtfsObjectBase
-import util
+from . import util
 
 class Frequency(GtfsObjectBase):
     """This class represents a period of a trip during which the vehicle travels

@@ -20,7 +20,7 @@ from .farerule import FareRule
 from .feedinfo import FeedInfo
 from .frequency import Frequency
 from .loader import Loader
-import problems
+from . import problems
 from .route import Route
 from .schedule import Schedule
 from .serviceperiod import ServicePeriod
@@ -72,7 +72,7 @@ class GtfsFactory(object):
         'fare_rules.txt': { 'required': False, 'loading_order': 60,
                             'classes': ['FareRule']},
 
-        'feed_info.txt': { 'required': False, 'loading_order': 100, 
+        'feed_info.txt': { 'required': False, 'loading_order': 100,
                            'classes': ['FeedInfo']},
 
         'frequencies.txt': { 'required': False, 'loading_order': 70,

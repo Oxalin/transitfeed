@@ -14,9 +14,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import util
 from .gtfsobjectbase import GtfsObjectBase
 from .problems import default_problem_reporter
+from . import util
 
 class Agency(GtfsObjectBase):
   """Represents an agency in a schedule.
@@ -110,4 +110,3 @@ class Agency(GtfsObjectBase):
 
   def AddToSchedule(self, schedule, problems):
     schedule.AddAgencyObject(self, problems)
-

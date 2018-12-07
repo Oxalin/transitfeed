@@ -17,8 +17,8 @@
 import warnings
 
 from .gtfsobjectbase import GtfsObjectBase
-import problems as problems_module
-import util
+from . import problems as problems_module
+from . import util
 
 class Trip(GtfsObjectBase):
   _REQUIRED_FIELD_NAMES = ['route_id', 'service_id', 'trip_id']
@@ -462,7 +462,7 @@ class Trip(GtfsObjectBase):
                                     'should be greater than start_time')
 
     if not exact_times:
-      exact_times = 0      
+      exact_times = 0
     if exact_times not in (0, 1):
       problem_reporter.InvalidValue('exact_times', exact_times,
           'Should be 0 (no fixed schedule) or 1 (fixed and regular schedule)')

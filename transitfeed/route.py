@@ -15,8 +15,8 @@
 # limitations under the License.
 
 from .gtfsobjectbase import GtfsObjectBase
-import problems as problems_module
-import util
+from . import problems as problems_module
+from . import util
 
 class Route(GtfsObjectBase):
   """Represents a single route."""
