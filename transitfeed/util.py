@@ -26,6 +26,12 @@ import sys
 import time
 import urllib2
 
+# Workaround basestring removal in Python3
+try:
+  basestring
+except NameError:
+  basestring = str
+
 import problems as problems_module
 from .trip import Trip
 from .version import __version__

@@ -15,6 +15,13 @@
 # limitations under the License.
 
 import codecs
+
+# Workaround basestring removal in Python3
+try:
+  basestring
+except NameError:
+  basestring = str
+
 import cStringIO as StringIO
 import csv
 import os

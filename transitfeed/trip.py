@@ -16,6 +16,12 @@
 
 import warnings
 
+# Workaround basestring removal in Python3
+try:
+  basestring
+except NameError:
+  basestring = str
+
 from .gtfsobjectbase import GtfsObjectBase
 from . import problems as problems_module
 from . import util
