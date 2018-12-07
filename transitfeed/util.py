@@ -24,6 +24,7 @@ import re
 import socket
 import sys
 import time
+from distutils.version import LooseVersion
 import urllib2
 
 # Workaround basestring removal in Python3
@@ -230,9 +231,14 @@ def CheckVersion(problems, latest_version=None):
 
 
 def _MaxVersion(versions):
-  versions = filter(None, versions)
-  versions.sort(lambda x,y: -cmp([int(item) for item in x.split('.')],
-                                 [int(item) for item in y.split('.')]))
+  # versions = filter(None, versions)
+  ## We should do this with distutils.version.LooseVersion()
+  # lversions = list(versions)
+  # compare_key = functools.cmp_to_key(lambda x,y: -cmp([int(item) for item in x.split('.')],
+  #                                [int(item) for item in y.split('.')]))
+  # lversions.sort(key=compare_key)
+  # sorted(versions, key=compare_key)
+  sorted(versions, key=LooseVersion)
   if len(versions) > 0:
     return versions[0]
 
