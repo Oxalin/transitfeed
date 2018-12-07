@@ -384,21 +384,29 @@ class SimpleProblemAccumulator(ProblemAccumulatorInterface):
 
   @staticmethod
   def _LineWrap(text, width):
-    """
-    A word-wrap function that preserves existing line breaks
-    and most spaces in the text. Expects that existing line
-    breaks are posix newlines (\n).
+    # """
+    # A word-wrap function that preserves existing line breaks
+    # and most spaces in the text. Expects that existing line
+    # breaks are posix newlines (\n).
+    #
+    # Taken from:
+    # http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/148061
+    # """
+    # return reduce(lambda line, word, width=width: '%s%s%s' %
+    #               (line,
+    #                ' \n'[(len(line) - line.rfind('\n') - 1 +
+    #                      len(word.split('\n', 1)[0]) >= width)],
+    #                word),
+    #               text.split(' ')
+    #              )
+    paragraphs = []
+    wrapper = textwrap.TextWrapper(width=width)
 
-    Taken from:
-    http://aspn.activestate.com/ASPN/Cookbook/Python/Recipe/148061
-    """
-    return reduce(lambda line, word, width=width: '%s%s%s' %
-                  (line,
-                   ' \n'[(len(line) - line.rfind('\n') - 1 +
-                         len(word.split('\n', 1)[0]) >= width)],
-                   word),
-                  text.split(' ')
-                 )
+    for paragraph in text.split('\n'):
+      paragraphs.append(wrapper.fill(paragraph))
+
+    return '\n'.join(paragraphs)
+
 
 
 class ExceptionWithContext(Exception):
