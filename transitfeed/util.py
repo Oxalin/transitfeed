@@ -72,7 +72,6 @@ or an email to the public group transitfeed@googlegroups.com. Sorry!
     dump.append(apology)
     dump.append(dashes)
     try:
-      import transitfeed
       dump.append("transitfeed version %s\n\n" % __version__)
     except NameError:
       # Oh well, guess we won't put the version in the report
