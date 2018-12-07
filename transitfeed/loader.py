@@ -22,7 +22,11 @@ try:
 except NameError:
   basestring = str
 
-import cStringIO as StringIO
+try:
+    from cStringIO import StringIO as StringIO
+except ImportError:
+    from io import StringIO
+
 import csv
 import os
 import re

@@ -15,7 +15,12 @@
 # limitations under the License.
 
 import bisect
-import cStringIO as StringIO
+
+try:
+    from cStringIO import StringIO as StringIO
+except ImportError:
+    from io import StringIO
+
 import datetime
 import itertools
 import os

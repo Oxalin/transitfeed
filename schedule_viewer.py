@@ -20,8 +20,18 @@ An example application that uses the transitfeed module.
 You must provide a Google Maps API key.
 """
 
+import sys
 
-import BaseHTTPServer, sys, urlparse
+try:
+    import http.server as BaseHTTPServer
+except ImportError:
+    import BaseHTTPServer
+
+try:
+    from urllib import parse as urlparse
+except ImportError:
+    import urlparse
+
 import bisect
 from gtfsscheduleviewer.marey_graph import MareyGraph
 import gtfsscheduleviewer
